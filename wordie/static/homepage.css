@@ -1,0 +1,40 @@
+body{
+    background-color: azure;
+    background-image: url("https://source.unsplash.com/1000x600/?dictionary,book");
+}
+.searcharea{
+    margin-left: 15vw;
+    margin-top:30vh;
+
+}
+input[name='searchbox']{
+    
+    width:50vw;
+    height:10vh;
+    font-size: 5vh;
+    border:1px solid rgb(176, 176, 173);
+    font-family: 'Cormorant SC',serif;
+}
+button[name='btn']{
+    height:10vh;
+    width:15vw;
+    font-size:3vh ;
+    
+}
+li{
+    list-style: none;
+    display: inline-block;
+    
+}
+.answer p{
+    font-family: 'Cormorant SC',serif;
+    font-size:20px;
+    color: White;
+
+}
+.titlebox{
+    font-size: 50px;
+    text-align: Center;
+    font-family: 'Cormorant SC',serif;
+}
+

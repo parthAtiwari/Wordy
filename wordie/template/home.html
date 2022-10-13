@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordy,Find Your Word!</title>
+    {% load static %}
+
+    
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' >
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Aboreto&family=Cinzel&family=Megrim&family=Allura&family=Caveat&family=Inspiration&family=Cormorant+SC&family=Poiret+One&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    
+
+</head>
+
+<body>
+    <h1>Wordy <sup>Find Your Word</sup></h1>
+    <div class="searcharea">
+        <form method="GET" action="/searchword">
+            {% csrf_token %}
+           
+            <input type="search"  name="searchbox" placeholder="Search a Word">
+                
+            <button type="submit" name="btn" class="fa fa-search"></button>
+               
+            
+        </form>
+        
+    </div>
+    <div class='warning'>
+        {% if error %}
+        
+            <strong style='font-size:30px; color:red;'>{{error}}</strong>
+        
+        {% endif %}
+
+    </div>
+    <div class='answer'>
+        {% if arr %}
+        
+            {% for a in arr %}
+                
+                {% for j in a %}
+                    <p style='font-size:30px; background-color:azure; color:black'>{{j}}</p>
+                {% endfor %}
+            {% endfor %}
+        
+
+        
+        {% endif %}
+    </div>
+
+    <style>
+        body{
+            background-color: azure;
+            background-image: url("https://source.unsplash.com/1000x600/?dictionary,book");
+        }
+            .searcharea{
+                margin-left: 15vw;
+                
+
+            }
+            input[name='searchbox']{
+                
+                width:50vw;
+                height:10vh;
+                font-size: 2vw;
+                border:1px solid rgb(176, 176, 173);
+                font-family: 'Cormorant SC',serif;
+                border-radius: 70px;
+            }
+            button[name='btn']{
+                
+                font-size:4vh ;
+                height:10vh;
+                width:10vw;
+                border: 1px solid transparent;
+                background-color: rgb(71, 71, 248);
+                cursor: pointer;
+                color: white;
+                
+                
+            }
+            li{
+                list-style: none;
+                display: inline-block;
+                
+            }
+            .answer p{
+                font-family: 'Cormorant SC',serif;
+                font-size:20px;
+                color: White;
+
+            }
+            .titlebox{
+                font-size: 50px;
+                text-align: Center;
+                font-family: 'Cormorant SC',serif;
+            }
+            h1{
+                font-family: 'Cormorant SC',serif;
+                text-align: center;
+                margin-top: 20vh;
+                font-size: 5vw;
+                background: -webkit-linear-gradient(#eee, #333);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            h1 sup{
+                font-family: "Dancing Script",cursive;
+                
+            }
+    </style>
+    
+</body>
+</html>
