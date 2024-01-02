@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordy,Find Your Word!</title>
+    {% load static %}
+
+    
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' >
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Aboreto&family=Cinzel&family=Megrim&family=Allura&family=Caveat&family=Inspiration&family=Cormorant+SC&family=Poiret+One&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="insider-container">
+
+        
+            <h1>Wordy <sup>Find Your Word</sup></h1>
+
+            
+
+            
+            <form method="GET" action="/searchword">
+                {% csrf_token %}
+            
+                <input type="search"  name="searchbox" placeholder="Search a Word" value={{word}}>
+                    
+                <button type="submit"  class="fa fa-search"></button>
+                
+                
+            </form>
+        
+            <div class='warning'>
+                {% if error %}
+                
+                    <p><strong style='font-size:30px; color:rgb(246, 97, 97);'>{{error}}</strong></p>
+                
+                {% endif %}
+        
+            </div>
+            <div class='answer'>
+                {% if arr %}
+                
+                    {% for a in arr %}
+                        
+                        {% for j in a %}
+                            <p style='font-size:30px; ; color:rgba(0, 0, 0, 0.721)'>{{j}}</p>
+                        {% endfor %}
+                    {% endfor %}
+                
+        
+                
+                {% endif %}
+            </div>
+        </div>
+        
+    </div>
+    
+    
+
+    <style>
+        body{
+            background-image: url("https://source.unsplash.com/1000x600/?dictionary,book");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+            
+
+            
+        }
+        .container{
+            margin-top:0;
+            background-color: rgba(255, 255, 255, 0.666);
+            backdrop-filter: blur(2px);
+
+        }
+        .insider-container{
+            background-color: transparent;
+            padding-top:20vh;
+            min-width: 95vw;
+            min-height: 70vh;
+        }
+        /* .search-container{
+            background-color: rgba(255, 255, 255, 0.715);
+            width:100vw;
+            backdrop-filter: blur(2px);
+            padding-top:45vh;
+            padding-bottom: 45vh;
+            
+           
+
+            
+        } */
+        input[name='searchbox']{
+            
+            width:60vw;
+            height:10vh;
+            margin-left: 15vw;
+            font-size: 4vh;
+            
+            border:1px solid rgb(176, 176, 173);
+            font-family: 'Cormorant SC',serif;
+            border-radius: 70px;
+        }
+        button{
+            
+            font-size:4vh ;
+            height:60px;
+            width:60px;
+            border: 1px solid transparent;
+            background-color: rgb(87, 87, 170);
+            cursor: pointer;
+            color: white;
+            border-radius: 100%;
+            
+            
+            
+        }
+        li{
+            list-style: none;
+            display: inline-block;
+            
+        }
+        .answer p{
+            font-family: 'Cormorant SC',serif;
+            font-size:20px;
+            color: White;
+
+        }
+        .titlebox{
+            font-size: 50px;
+            text-align: Center;
+            font-family: 'Cormorant SC',serif;
+        }
+        h1{
+            font-family: 'Cormorant SC',serif;
+            text-align: center;
+            
+            font-size: 5vw;
+            font-weight: 700px;
+            color:rgba(0, 0, 0, 0.805);
+            
+        
+        }
+        h1 sup{
+            font-family: "Dancing Script",cursive;
+            
+
+        }
+        button:hover{
+            background-color:black;
+        }
+
+        footer{
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.747);
+            backdrop-filter: blur(7px);
+            color: white;
+            padding: 4vh;
+            margin-bottom: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+    
+    </style>
+    <footer>Created with❤️by Parth<br><br>Powered by Oxford Dictionary</footer>
+</body>
+</html>
