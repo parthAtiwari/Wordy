@@ -13,7 +13,7 @@ def searchword(request):
         word=request.GET.get('searchbox')
         
         app_id  = "b69d484e"
-        app_key  = "3fa46f18bb2a13706e666f6b46e575a3"
+        app_key  = "Your Oxford Dictionary API Key"
         endpoint = "entries"
         language_code = "en-us"
         word_id = word
